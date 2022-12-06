@@ -4,122 +4,86 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class JobController extends Controller
 {
-    //show all jobs
-    public function index() {
-        // dd(request('tag'));
-        // dd(Job::latest()->filter(request(['tag', 'search']))->paginate(2) );
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $jobs = Job::all();
 
         return view('jobs.index', [
-            'jobs' => Job::latest()->filter(request(['tag', 'search']))->paginate(6) 
+            'jobs' => $jobs,
         ]);
     }
 
-    //show single job
-    public function show(Job $job) {
-        return view('jobs.show', [
-            'job' => $job
-        ]);
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
-    //show create form
-    public function create() {
-        return view('jobs.create');
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
     }
 
-    //store job data
-    public function store(Request $request) {
-        // dd($request->all());
-        
-        // dd($request->file('logo')->store());
-
-        $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required', Rule::unique('jobs',
-            'company')],
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
-        ]);
-
-
-        if($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-        }
-
-        $formFields['user_id'] = auth()->id();
-
-        
-        Job::create($formFields);
-
-        // Session::flash('message', 'Job Created');
-
-        return redirect('/')->with('message', 'Job created successfully!');
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
-
-    // Show edit form
-    public function edit(Job $job){
-        // dd($job->title);
-        return view('jobs.edit', ['job' => $job]);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
-    //update job data
-    public function update(Request $request, Job $job) {
-        // dd($request->all());
-        
-        // dd($request->file('logo')->store());
-
-        // make sure logged in user is the owner
-        if($job->user_id != auth()-> id()) {
-            abort(403, 'Unauthorized Action');
-        }
-
-        $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required'],
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
-        ]);
-
-
-        if($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-        }
-
-        
-        $job->update($formFields);
-
-        // Session::flash('message', 'Job Created');
-
-        return back()->with('message', 'Job updated successfully!');
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
     }
 
-    // Delete job
-    public function delete(Job $job) {
-         // make sure logged in user is the owner
-         if($job->user_id != auth()-> id()) {
-            abort(403, 'Unauthorized Action');
-        }
-        $job->delete();
-        return redirect('/')->with('message', 'Job deleted successfuly!');
-    }
-
-    // Manage Job
-    public function manage() {
-        return view('jobs.manage', ['jobs' => auth()->user()->jobs()->get()]);
-    }
-
-    // Manage All Job
-    public function manageAll() {
-        return view('jobs.manageAll', 'jobs');
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

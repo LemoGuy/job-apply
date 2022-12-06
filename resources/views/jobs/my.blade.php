@@ -2,7 +2,7 @@
     <x-card class="p-10">
         <header>
             <h1 class="text-3xl text-center font-bold my-6 uppercase">
-                Manage All Jobs
+                Manage Jobs
             </h1>
         </header>
 
@@ -13,17 +13,17 @@
                     @foreach ($jobs as $job)
                         <tr class="border-gray-300">
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="/jobs/{{ $job->id }}">
+                                <a href="{{ route('my-job.show', $job->id) }}">
                                     {{ $job->title }}
                                 </a>
                             </td>
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="/jobs/{{ $job->id }}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
+                                <a href="{{ route('my-job.edit', $job->id) }}" class="text-blue-400 px-6 py-2 rounded-xl"><i
                                         class="fa-solid fa-pen-to-square"></i>
                                     Edit</a>
                             </td>
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <form method="POST" action="/jobs/{{ $job->id }}">
+                                <form method="POST" action="{{ route('my-job.destroy', $job->id) }}">
 
                                     @csrf
                                     @method('DELETE')

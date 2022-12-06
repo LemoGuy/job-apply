@@ -31,14 +31,26 @@
         <ul class="flex space-x-6 mr-6 text-lg">
 
             @auth
+                @if (auth()->user()->is_admin)
+                    <li>
+                        <a href="{{ route('dashboard.user.index') }}" class="hover:text-sky-600"><i
+                                class="fa-solid fa-gear"></i>
+                            Manage Users</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dashboard.job.index') }}" class="hover:text-sky-600"><i
+                                class="fa-solid fa-gear"></i>
+                            Manage Jobs</a>
+                    </li>
+                @endif
                 <li>
                     <span class="font-bold uppercase">
                         Welcome {{ auth()->user()->name }}
                     </span>
                 </li>
                 <li>
-                    <a href="/jobs/manage" class="hover:text-sky-600"><i class="fa-solid fa-gear"></i>
-                        Manage Jobs</a>
+                    <a href="{{ route('my-job.index') }}" class="hover:text-sky-600"><i class="fa-solid fa-gear"></i>
+                        My Jobs</a>
                 </li>
 
                 <li>

@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
+        'is_enabled',
     ];
 
     /**
@@ -40,10 +42,13 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean',
+        'is_enabled' => 'boolean',
     ];
 
     // relationsship with jobs
-    public function jobs() {
+    public function jobs()
+    {
         // user has many jobs
         return $this->hasMany(Job::class, 'user_id');
     }
