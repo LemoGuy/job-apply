@@ -1,13 +1,16 @@
 <x-layout>
+
     <x-card class=" p-10 rounded max-w-lg mx-auto mt-24">
+
+
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Edit Job
             </h2>
-            <p class="mb-4">Edit: {{$job->title}}</p>
+            <p class="mb-4">Edit: {{ $job->title }}</p>
         </header>
 
-        <form method="POST" action="/jobs/{{$job->id}}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('job.update', $job->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-6">
@@ -82,12 +85,14 @@
                 </label>
                 <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo" />
 
-                <img class="w-48 mr-6 mb-6" src="{{$job->logo ? asset('storage/' . $job->logo) : asset('/images/no-image.png')}}" alt="" />
-            
+                <img class="w-48 mr-6 mb-6"
+                    src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/images/no-image.png') }}"
+                    alt="" />
+
                 @error('logo')
-                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-            @enderror
-            
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+
             </div>
 
             <div class="mb-6">

@@ -20,35 +20,34 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::middleware('auth')->name('dashboard.')->prefix('dashboard')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::resource('user', UserController::class);
-    Route::resource('job', JobController::class);
+    Route::resource('job', JobController::class)->except('show');
 });
+
+Route::resource('job', JobController::class)->only('show');
 
 Route::middleware('auth')->group(function () {
     Route::resource('my-job', MyJobController::class);
 });
 
-///JOB CONTROLLER
-
-// All Jobs
+// Show All Jobs
 Route::get('/', Home::class);
 
 // Show register create form
 Route::get('/register', [AuthController::class, 'create'])->middleware('guest');
 
-
-
 // Cretae new User
 Route::post('/users', [AuthController::class, 'store']);
+
+// Show login Form
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+
+// Login in user
+Route::post('/users/authenticate', [AuthController::class, 'authenticate']);
 
 // Log user out
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
 
 
-// Show login Form
-Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
-
-
-// Login in user
-Route::post('/users/authenticate', [AuthController::class, 'authenticate']);
+Route::get('/test', [UserController::class, 'test']);

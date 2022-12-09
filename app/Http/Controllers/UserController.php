@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -26,6 +27,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -50,7 +52,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('users.show', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -61,7 +67,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('users.edit', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -73,7 +83,24 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $user = User::findOrFail($id);
+
+        if ($request->action == 'user_info') {
+            $request->validate([
+                'name' => 'required|string',
+                'email' => 'required|email'
+            ]);
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email
+            ]);
+        } elseif ($request->action == 'user_password') {
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+        return back()->with('message', 'User updated successfully!');
     }
 
     /**
@@ -99,5 +126,11 @@ class UserController extends Controller
         }
 
         return redirect()->back()->with('message', $message);
+    }
+
+
+    public function test(Request $request)
+    {
+        return view('test');
     }
 }

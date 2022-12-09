@@ -33,13 +33,11 @@
             @auth
                 @if (auth()->user()->is_admin)
                     <li>
-                        <a href="{{ route('dashboard.user.index') }}" class="hover:text-sky-600"><i
-                                class="fa-solid fa-gear"></i>
+                        <a href="{{ route('user.index') }}" class="hover:text-sky-600"><i class="fa-solid fa-gear"></i>
                             Manage Users</a>
                     </li>
                     <li>
-                        <a href="{{ route('dashboard.job.index') }}" class="hover:text-sky-600"><i
-                                class="fa-solid fa-gear"></i>
+                        <a href="{{ route('job.index') }}" class="hover:text-sky-600"><i class="fa-solid fa-gear"></i>
                             Manage Jobs</a>
                     </li>
                 @endif
@@ -81,7 +79,8 @@
         class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-sky-900 text-white h-24 mt-24 opacity-90 md:justify-center">
         <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
 
-        <a href="/jobs/create" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Post Job</a>
+        <a href="{{ route('my-job.create') }}" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Post
+            Job</a>
     </footer>
 
     <x-flash-message />

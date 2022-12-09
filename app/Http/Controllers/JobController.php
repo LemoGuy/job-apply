@@ -50,7 +50,9 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        //
+        $job = Job::findOrFail($id);
+
+        return view('jobs.show', ['job' => $job]);
     }
 
     /**
@@ -61,7 +63,9 @@ class JobController extends Controller
      */
     public function edit($id)
     {
-        //
+        $job = Job::findOrFail($id);
+
+        return view('jobs.edit', ['job' => $job]);
     }
 
     /**
@@ -73,8 +77,36 @@ class JobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (auth()->user()->is_admin) {
+            $job = Job::findOrFail($id);
+
+            $formFields = $request->validate([
+                'title' => 'required',
+                'company' => ['required'],
+                'location' => 'required',
+                'website' => 'required',
+                'email' => ['required', 'email'],
+                'tags' => 'required',
+                'description' => 'required'
+            ]);
+        } else {
+            abort(403, 'Unauthorized Action');
+        }
+
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+
+        $job->update($formFields);
+
+        // Session::flash('message', 'Job Created');
+
+        return back()->with('message', 'Job updated successfully!');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -84,6 +116,14 @@ class JobController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        if (auth()->user()->is_admin) {
+            $job = Job::findOrFail($id);
+
+            $job->delete();
+            return redirect('/')->with('message', 'Job deleted successfuly!');
+        } else {
+            abort(403, 'Unauthorized Action');
+        }
     }
 }

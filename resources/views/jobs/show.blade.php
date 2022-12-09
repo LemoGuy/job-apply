@@ -2,7 +2,7 @@
     @include('partials._search')
 
 
-    <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
+    <a href="{{ url()->previous() }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
     </a>
     <div class="mx-4">
         <x-card class="p-10">
@@ -42,23 +42,23 @@
         </x-card>
 
         @auth
-        @if($job->user_id == auth()-> id())
-            <x-card class="mt-4 p-2 flex space-x-6">
-                <a href="/jobs/{{ $job->id }}/edit">
-                    <i class="fa-solid fa-pencil"></i> Edit
-                </a>
+            @if ($job->user_id == auth()->id())
+                <x-card class="mt-4 p-2 flex space-x-6">
+                    <a href="/jobs/{{ $job->id }}/edit">
+                        <i class="fa-solid fa-pencil"></i> Edit
+                    </a>
 
-                <form method="POST" action="/jobs/{{ $job->id }}">
+                    <form method="POST" action="/jobs/{{ $job->id }}">
 
-                    @csrf
-                    @method('DELETE')
+                        @csrf
+                        @method('DELETE')
 
-                    <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Delete</button>
+                        <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Delete</button>
 
 
-                </form>
-            </x-card>
-        @endif
+                    </form>
+                </x-card>
+            @endif
         @else
         @endauth
 

@@ -16,7 +16,7 @@ class Home extends Controller
     public function __invoke(Request $request)
     {
         return view('welcome', [
-            'jobs' => Job::latest()->filter(request(['tag', 'search']))->paginate(6)
+            'jobs' => Job::latest()->filter(request(['tag', 'search']))->paginate(2)
         ]);
     }
 }

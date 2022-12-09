@@ -12,18 +12,18 @@
                 @unless($jobs->isEmpty())
                     @foreach ($jobs as $job)
                         <tr class="border-gray-300">
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="/jobs/{{ $job->id }}">
+                            <td class="px-4 py-8 border-t border-b border-red-300 text-lg">
+                                <a href="{{ route('job.show', $job->id) }}">
                                     {{ $job->title }}
                                 </a>
                             </td>
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="/jobs/{{ $job->id }}/edit" class="text-blue-400 px-6 py-2 rounded-xl"><i
+                                <a href="{{ route('job.edit', $job->id) }}" class="text-blue-400 px-6 py-2 rounded-xl"><i
                                         class="fa-solid fa-pen-to-square"></i>
                                     Edit</a>
                             </td>
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <form method="POST" action="/jobs/{{ $job->id }}">
+                                <form method="POST" action="{{ route('job.destroy', $job->id) }}">
 
                                     @csrf
                                     @method('DELETE')

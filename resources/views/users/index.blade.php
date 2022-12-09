@@ -12,18 +12,26 @@
                 @unless($users->isEmpty())
                     @foreach ($users as $user)
                         <tr class="border-gray-300">
+
+
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="{{ route('dashboard.user.show', $user->id) }}">
+                                <a href="{{ route('user.show', $user->id) }}">
                                     {{ $user->name }}
                                 </a>
                             </td>
+
+
+
+
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="{{ route('dashboard.user.edit', $user->id) }}"
-                                    class="text-blue-400 px-6 py-2 rounded-xl"><i class="fa-solid fa-pen-to-square"></i>
+                                <a href="{{ route('user.edit', $user->id) }}" class="text-blue-400 px-6 py-2 rounded-xl"><i
+                                        class="fa-solid fa-pen-to-square"></i>
                                     Edit</a>
                             </td>
+
+
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <form method="POST" action="{{ route('dashboard.user.destroy', $user->id) }}">
+                                <form method="POST" action="{{ route('user.destroy', $user->id) }}">
 
                                     @csrf
                                     @method('DELETE')
@@ -37,6 +45,8 @@
 
                                 </form>
                             </td>
+
+
                         </tr>
                     @endforeach
                 @else

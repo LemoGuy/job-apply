@@ -7,15 +7,16 @@
             <p class="mb-4">Create an account to post jobs</p>
         </header>
 
-        <form method="POST" action="/users">
+        <form method="POST" action="{{ route('user.update', $user->id) }}">
             @csrf
+            @method('PUT')
 
             <div class="mb-6">
                 <label for="name" class="inline-block text-lg mb-2">
                     Name
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="name"
-                    value="{{ old('name') }}" />
+                    value="{{ $user->name }}" />
 
                 @error('name')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -25,18 +26,32 @@
             <div class="mb-6">
                 <label for="email" class="inline-block text-lg mb-2">Email</label>
                 <input type="email" class="border border-gray-200 rounded p-2 w-full" name="email"
-                    value="{{ old('email') }}" />
+                    value="{{ $user->email }}" />
                 @error('email')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
+            <div class="mb-6">
+                <button type="submit" name="action" value="user_info"
+                    class="bg-sky-900 text-white rounded py-2 px-4 hover:bg-sky-600">
+                    Update
+                </button>
+            </div>
+
+        </form>
+
+
+        <form method="POST" action="{{ route('user.update', $user->id) }}">
+            @csrf
+            @method('PUT')
+
+
 
             <div class="mb-6">
                 <label for="password" class="inline-block text-lg mb-2">
-                    Password
+                    New Password
                 </label>
-                <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password"
-                    value="{{ old('password') }}" />
+                <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password" />
 
                 @error('password')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -47,8 +62,7 @@
                 <label for="password_confirmation" class="inline-block text-lg mb-2">
                     Confirm Password
                 </label>
-                <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password_confirmation"
-                    value="{{ old('password_confirmation') }}" />
+                <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password_confirmation" />
 
                 @error('password_confirmation')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -56,17 +70,13 @@
             </div>
 
             <div class="mb-6">
-                <button type="submit" class="bg-sky-900 text-white rounded py-2 px-4 hover:bg-sky-600">
-                    Sign Up
+                <button type="submit" name="action" value="user_password"
+                    class="bg-sky-900 text-white rounded py-2 px-4 hover:bg-sky-600">
+                    Update
                 </button>
             </div>
 
-            <div class="mt-8">
-                <p>
-                    Already have an account?
-                    <a href="/login" class="text-sky-900">Login</a>
-                </p>
-            </div>
+
         </form>
     </x-card>
     </div>

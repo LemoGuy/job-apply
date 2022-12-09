@@ -19,8 +19,9 @@ class MyJobController extends Controller
     }
 
     //show single job
-    public function show(Job $job)
+    public function show($id)
     {
+        $job = Job::findOrFail($id);
         return view('jobs.show', [
             'job' => $job
         ]);
@@ -113,13 +114,17 @@ class MyJobController extends Controller
     }
 
     // Delete job
-    public function delete(Job $job)
+    public function destroy($id)
     {
+        $job = Job::findOrFail($id);
+
         // make sure logged in user is the owner
-        if ($job->user_id != auth()->id()) {
+        if (auth()->id() == $job->user_id) {
+
+            $job->delete();
+            return redirect('/')->with('message', 'Job deleted successfuly!');
+        } else {
             abort(403, 'Unauthorized Action');
         }
-        $job->delete();
-        return redirect('/')->with('message', 'Job deleted successfuly!');
     }
 }
