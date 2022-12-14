@@ -52,6 +52,16 @@
                 </li>
 
                 <li>
+                    <a href="{{ route('my-request.index') }}" class="hover:text-sky-600"><i class="fa-solid fa-gear"></i>
+                        @if (auth()->user()->account_type == 'company')
+                            My Applicants
+                        @elseif (auth()->user()->account_type == 'user')
+                            My Requests
+                        @endif
+                    </a>
+                </li>
+
+                <li>
                     <form class="inline" method="POST" action="/logout">
                         @csrf
                         <button type="submit">

@@ -7,6 +7,8 @@ use App\Http\Controllers\MyJobController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\MyRequestController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -23,13 +25,12 @@ use App\Http\Controllers\UserController;
 Route::middleware('auth')->group(function () {
     Route::resource('user', UserController::class);
     Route::resource('job', JobController::class)->except('show');
+    Route::resource('request', RequestController::class);
+    Route::resource('my-job', MyJobController::class);
+    Route::resource('my-request', MyRequestController::class);
 });
 
 Route::resource('job', JobController::class)->only('show');
-
-Route::middleware('auth')->group(function () {
-    Route::resource('my-job', MyJobController::class);
-});
 
 // Show All Jobs
 Route::get('/', Home::class);

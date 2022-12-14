@@ -11,7 +11,8 @@ class MyJobController extends Controller
     //show all jobs
     public function index()
     {
-        $jobs = Job::where('user_id', auth()->id())->get();
+        $jobs = Job::where('user_id', auth()->id())
+            ->get();
 
         return view('jobs.my', [
             'jobs' => $jobs,
@@ -79,8 +80,10 @@ class MyJobController extends Controller
     }
 
     //update job data
-    public function update(Request $request, Job $job)
+    public function update(Request $request, $id)
     {
+
+        $job = Job::findOrFail($id);
         // dd($request->all());
 
         // dd($request->file('logo')->store());
