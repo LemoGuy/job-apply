@@ -34,12 +34,13 @@
                             Contact Employer</a>
 
                         <a href="{{ $job->website }}" target="_blank"
-                            class="block bg-sky-900 text-white py-2 rounded-xl hover:opacity-80"><i
+                            class="block bg-teal-900 text-white py-2 rounded-xl hover:opacity-80"><i
                                 class="fa-solid fa-globe"></i> Visit
                             Website</a>
 
                         <button
-                            class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                            class="bg-sky-900 text-white hover:opacity-80 active:bg-sky-900 font-bold uppercase text-sm px-6 py-3
+                             rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                             type="button" onclick="toggleModal('modal-id')">
                             Apply for job
                         </button>
