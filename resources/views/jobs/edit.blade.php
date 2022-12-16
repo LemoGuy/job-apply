@@ -10,7 +10,7 @@
             <p class="mb-4">Edit: {{ $job->title }}</p>
         </header>
 
-        <form method="POST" action="{{ route('my-job.update', $job->id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('job.update', $job->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-6">

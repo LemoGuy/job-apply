@@ -50,9 +50,12 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        $job = Job::findOrFail($id);
-
-        return view('jobs.show', ['job' => $job]);
+        $job = Job::withCount(['requests' => function ($query) {
+            $query->where('user_id', auth()->id());
+        }])->findOrFail($id);
+        return view('jobs.show', [
+            'job' => $job
+        ]);
     }
 
     /**
@@ -121,7 +124,7 @@ class JobController extends Controller
             $job = Job::findOrFail($id);
 
             $job->delete();
-            return redirect('/')->with('message', 'Job deleted successfuly!');
+            return redirect('/job')->with('message', 'Job deleted successfuly!');
         } else {
             abort(403, 'Unauthorized Action');
         }

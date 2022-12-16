@@ -37,9 +37,9 @@
                                     @method('DELETE')
 
                                     @if ($user->is_enabled)
-                                        <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Disable</button>
+                                        <button class="text-red-500"><i class="fa-solid fa-times"></i> Disable</button>
                                     @else
-                                        <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Enable</button>
+                                        <button class="text-sky-500"><i class="fa-solid fa-check"></i> Enable</button>
                                     @endif
 
 

@@ -55,8 +55,9 @@ class MyRequestController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cv' => 'required|file',
+            'cv' => 'required|file|max:3072',
             'job' => 'required|integer',
+
         ]);
 
         $job = Job::findOrFail($request->job);
@@ -110,9 +111,10 @@ class MyRequestController extends Controller
             'status' => $request->status
         ]);
 
-        Mail::to($rq->user->email)->send(new JobRequestStatusUpdated($rq));
+        // TODO!
+        // Mail::to($rq->user->email)->send(new JobRequestStatusUpdated($rq));
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Status updated successfully!');
     }
 
     /**

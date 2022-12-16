@@ -22,10 +22,6 @@ class MyJobController extends Controller
     //show single job
     public function show($id)
     {
-        $job = Job::findOrFail($id);
-        return view('jobs.show', [
-            'job' => $job
-        ]);
     }
 
     //show create form
@@ -60,7 +56,6 @@ class MyJobController extends Controller
         }
 
         $formFields['user_id'] = auth()->id();
-
 
         Job::create($formFields);
 
@@ -105,7 +100,7 @@ class MyJobController extends Controller
 
 
         if ($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+            $formFields['logo'] = $request->file('logo')->store('logos');
         }
 
 

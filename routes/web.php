@@ -49,6 +49,3 @@ Route::post('/users/authenticate', [AuthController::class, 'authenticate']);
 
 // Log user out
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
-
-
-Route::get('/test', [UserController::class, 'test']);

@@ -18,12 +18,12 @@ class JobFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence(),
-            'tags' => 'laravel, api, backend', 
+            'tags' => 'laravel, api, backend',
             'company' => $this->faker->company(),
             'email' => $this->faker->companyemail(),
             'website' => $this->faker->url(),
             'location' => $this->faker->city(),
-            'description' => $this->faker->paragraph(5)
+            'description' => $this->faker->paragraph(10)
         ];
     }
 }

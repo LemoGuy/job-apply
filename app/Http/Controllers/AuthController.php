@@ -17,10 +17,13 @@ class AuthController extends Controller
     // Create new user
     public function store(Request $request)
     {
+        // dd($request->all());
+
         $formFields = $request->validate([
             'name' => ['required', 'min:3'], //atleaset 3 chars
             'email' => ['required', 'email', Rule::unique('users', 'email')], //unique email with users table to email column
-            'password' => ['required', 'confirmed', 'min:6']
+            'password' => ['required', 'confirmed', 'min:6'],
+            'account_type' => ['required', 'String']
             // 'password' => 'required|confirmed|min:6'
 
         ]);

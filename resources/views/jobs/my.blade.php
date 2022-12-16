@@ -7,6 +7,15 @@
         </header>
 
         <table class="w-full table-auto rounded-sm">
+
+            <thead>
+                <th>Name</th>
+                <th>Action</th>
+
+
+
+
+            </thead>
             <tbody>
 
                 @unless($jobs->isEmpty())

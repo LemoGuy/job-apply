@@ -38,12 +38,24 @@
                                 class="fa-solid fa-globe"></i> Visit
                             Website</a>
 
-                        <button
-                            class="bg-sky-900 text-white hover:opacity-80 active:bg-sky-900 font-bold uppercase text-sm px-6 py-3
+                        @if ($job->requests_count == 0)
+                            <button
+                                class="bg-sky-900 text-white hover:opacity-80 active:bg-sky-900 font-bold uppercase text-sm px-6 py-3
                              rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                            type="button" onclick="toggleModal('modal-id')">
-                            Apply for job
-                        </button>
+                                type="button" onclick="toggleModal('modal-id')">
+                                Apply for job
+                            </button>
+                        @else
+                            <button disabled
+                                class="bg-blue-900 text-white hover:opacity-80 active:bg-sky-900 font-bold uppercase text-sm px-6 py-3
+                             rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                type="button">
+                                Already applied!
+                            </button>
+                        @endif
+
+
+
                         <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
                             id="modal-id">
                             <div class="relative w-auto my-6 mx-auto max-w-3xl">

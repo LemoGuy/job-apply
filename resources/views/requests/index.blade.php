@@ -7,6 +7,18 @@
         </header>
 
         <table class="w-full table-auto rounded-sm">
+            <thead>
+                <th>Name</th>
+                <th>Applicant</th>
+                <th>Company Name</th>
+                <th>CV</th>
+                <th>Status</th>
+                <th></th>
+
+
+
+            </thead>
+
             <tbody>
 
                 @unless($requests->isEmpty())
@@ -23,7 +35,7 @@
                                 </a>
                             </td>
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="{{ route('user.show', $request->user->id) }}">
+                                <a href="{{ route('user.show', $request->company->id) }}">
                                     {{ $request->company->name }}
                                 </a>
                             </td>
@@ -38,35 +50,45 @@
                                 </p>
                             </td>
                             @if (auth()->user()->account_type == 'user')
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                    <form method="POST" action="{{ route('my-request.destroy', $request->id) }}">
+                                @if ($request->status == 'Pending')
+                                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                        <form method="POST" action="{{ route('my-request.destroy', $request->id) }}">
 
-                                        @csrf
-                                        @method('DELETE')
+                                            @csrf
+                                            @method('DELETE')
 
-                                        <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Delete</button>
-                                    </form>
-                                </td>
+                                            <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Delete</button>
+                                        </form>
+                                    </td>
+                                @endif
                             @else
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                    <form method="POST" action="{{ route('my-request.update', $request->id) }}">
-                                        <input type="hidden" name="status" value="Confirm">
-                                        @csrf
-                                        @method('PUT')
+                                @if ($request->status == 'Pending' || $request->status == 'Rejected')
+                                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                        <form method="POST" action="{{ route('my-request.update', $request->id) }}">
+                                            <input type="hidden" name="status" value="Confirmed">
+                                            @csrf
+                                            @method('PUT')
 
-                                        <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Confirm</button>
-                                    </form>
-                                </td>
-                                <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                    <form method="POST" action="{{ route('my-request.update', $request->id) }}">
-                                        <input type="hidden" name="status" value="Reject">
-                                        @csrf
-                                        @method('PUT')
+                                            <button class="text-sky-500"><i class="fa-solid fa-check"></i> Confirm</button>
 
-                                        <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Reject</button>
-                                    </form>
-                                </td>
+                                        </form>
+                                    </td>
+                                @endif
+
+                                @if ($request->status == 'Pending' || $request->status == 'Confirmed')
+                                    <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                                        <form method="POST" action="{{ route('my-request.update', $request->id) }}">
+                                            <input type="hidden" name="status" value="Rejected">
+                                            @csrf
+                                            @method('PUT')
+
+                                            <button class="text-red-500"><i class="fa-solid fa-times"></i>
+                                                Reject</button>
+                                        </form>
+                                    </td>
+                                @endif
                             @endif
+
                         </tr>
                     @endforeach
                 @else

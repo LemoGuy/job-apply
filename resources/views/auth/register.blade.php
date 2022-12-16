@@ -32,16 +32,16 @@
             </div>
 
             <div class="mb-6">
-                <label for="accountType" class="inline-block text-lg mb-2">Account Type</label>
-                <select id="accountType" class="border border-gray-200 rounded p-2 w-full" name="accountType"
-                    value="{{ old('accountType') }}">
+                <label for="account_type" class="inline-block text-lg mb-2">Account Type</label>
+                <select id="account_type" class="border border-gray-200 rounded p-2 w-full" name="account_type"
+                    value="{{ old('account_type') }}">
 
                     <option value="user">User</option>
                     <option value="company">Company</option>
 
 
                 </select>
-                @error('accountType')
+                @error('account_type')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>

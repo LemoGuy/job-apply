@@ -114,23 +114,17 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         if ($user->is_enabled) {
-            $message = 'Accound Disabled Successfully';
+            $message = 'Account Disabled Successfully';
             $user->update([
                 'is_enabled' => 0
             ]);
         } else {
-            $message = 'Accound Enabled Successfully';
+            $message = 'Account Enabled Successfully';
             $user->update([
                 'is_enabled' => 1
             ]);
         }
 
         return redirect()->back()->with('message', $message);
-    }
-
-
-    public function test(Request $request)
-    {
-        return view('test');
     }
 }
