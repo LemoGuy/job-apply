@@ -36,7 +36,7 @@ Route::resource('job', JobController::class)->only('show');
 Route::get('/', Home::class);
 
 // Show register create form
-Route::get('/register', [AuthController::class, 'create'])->middleware('guest');
+Route::get('/register', [AuthController::class, 'create']);
 
 // Cretae new User
 Route::post('/users', [AuthController::class, 'store']);

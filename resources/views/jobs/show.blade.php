@@ -28,6 +28,12 @@
                     <div class="text-lg space-y-6">
                         {{ $job->description }}
 
+                        <div>
+
+
+
+
+                        </div>
                         <a href="mailto:{{ $job->email }}"
                             class="block bg-teal-800 text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
                                 class="fa-solid fa-envelope"></i>
@@ -37,24 +43,26 @@
                             class="block bg-teal-900 text-white py-2 rounded-xl hover:opacity-80"><i
                                 class="fa-solid fa-globe"></i> Visit
                             Website</a>
+                        {{-- 
 
+                        @auth
+
+                            @if (auth()->user()->account_type == 'user') --}}
                         @if ($job->requests_count == 0)
-                            <button
-                                class="bg-sky-900 text-white hover:opacity-80 active:bg-sky-900 font-bold uppercase text-sm px-6 py-3
-                             rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                                type="button" onclick="toggleModal('modal-id')">
+                            <a class="block bg-sky-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
+                                type="button" onclick="toggleModal('modal-id')"><i class="fa-solid fa-upload"></i>
                                 Apply for job
-                            </button>
+                            </a>
                         @else
-                            <button disabled
-                                class="bg-blue-900 text-white hover:opacity-80 active:bg-sky-900 font-bold uppercase text-sm px-6 py-3
-                             rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                            <a disabled
+                                class="bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 w-80 cursor-pointer"
                                 type="button">
                                 Already applied!
-                            </button>
+                            </a>
                         @endif
+                        {{-- @endif
 
-
+                        @endauth --}}
 
                         <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
                             id="modal-id">

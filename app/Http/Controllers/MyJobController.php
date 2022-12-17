@@ -22,6 +22,12 @@ class MyJobController extends Controller
     //show single job
     public function show($id)
     {
+        $job = Job::withCount(['requests' => function ($query) {
+            $query->where('user_id', auth()->id());
+        }])->findOrFail($id);
+        return view('jobs.show', [
+            'job' => $job
+        ]);
     }
 
     //show create form
@@ -52,7 +58,7 @@ class MyJobController extends Controller
 
 
         if ($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+            $formFields['logo'] = $request->file('logo')->store('logos');
         }
 
         $formFields['user_id'] = auth()->id();
@@ -74,33 +80,33 @@ class MyJobController extends Controller
         }
     }
 
+
+
     //update job data
     public function update(Request $request, $id)
     {
 
         $job = Job::findOrFail($id);
-        // dd($request->all());
 
-        // dd($request->file('logo')->store());
+        if ($job->user_id == auth()->id()) {
 
-        // make sure logged in user is the owner
-        if ($job->user_id != auth()->id()) {
+
+            $formFields = $request->validate([
+                'title' => 'required',
+                'company' => ['required'],
+                'location' => 'required',
+                'website' => 'required',
+                'email' => ['required', 'email'],
+                'tags' => 'required',
+                'description' => 'required'
+            ]);
+        } else {
             abort(403, 'Unauthorized Action');
         }
 
-        $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required'],
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
-        ]);
-
 
         if ($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos');
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
 
@@ -110,6 +116,7 @@ class MyJobController extends Controller
 
         return back()->with('message', 'Job updated successfully!');
     }
+
 
     // Delete job
     public function destroy($id)

@@ -54,6 +54,8 @@ class MyRequestController extends Controller
      */
     public function store(Request $request)
     {
+
+        // if (auth()->user()->account_type == 'user') {
         $request->validate([
             'cv' => 'required|file|max:3072',
             'job' => 'required|integer',
@@ -72,7 +74,10 @@ class MyRequestController extends Controller
             'status' => 'Pending',
         ]);
 
-        return redirect()->back()->with('message', 'Request created successfully!');
+        return redirect()->back()->with('message', 'Applied successfully!');
+        // } 
+        // else
+        //     return redirect()->back()->with('message', 'You have to be a user to apply for this job!');
     }
 
     /**

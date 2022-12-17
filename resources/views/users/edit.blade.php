@@ -1,10 +1,12 @@
 <x-layout>
+    <a href="{{ url()->previous() }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i>
+        Back
+    </a>
     <x-card class="p-10  max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
-                Register
+                Update User
             </h2>
-            <p class="mb-4">Create an account to post jobs</p>
         </header>
 
         <form method="POST" action="{{ route('user.update', $user->id) }}">

@@ -1,21 +1,24 @@
 <x-layout>
     <x-card class="p-10">
         <header>
-            <h1 class="text-3xl text-center font-bold my-6 uppercase">
+            <h1 class="text-3xl text-center font-bold mb-16 uppercase">
                 Manage Requests
             </h1>
         </header>
 
         <table class="w-full table-auto rounded-sm">
-            <thead>
-                <th>Name</th>
-                <th>Applicant</th>
-                <th>Company Name</th>
-                <th>CV</th>
+            <thead class="text-left text-xl ">
+                @if (auth()->user()->account_type == 'company')
+                    <th>User Name</th>
+                @elseif (auth()->user()->account_type == 'user')
+                    <th>Company Name</th>
+                @endif
+                <th>Job Title</th>
+                <th>Uploaded File</th>
                 <th>Status</th>
-                <th></th>
-
-
+                @if (auth()->user()->account_type == 'company')
+                    <th>Action</th>
+                @endif
 
             </thead>
 
@@ -23,23 +26,27 @@
 
                 @unless($requests->isEmpty())
                     @foreach ($requests as $request)
-                        <tr class="border-gray-300">
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                        <tr class="border-gray-300 text-left">
+                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">
+                                @if (auth()->user()->account_type == 'company')
+                                    <a href="{{ route('user.show', $request->user->id) }}">
+                                        {{ $request->user->name }}
+                                    </a>
+                                @elseif (auth()->user()->account_type == 'user')
+                                    <a href="{{ route('user.show', $request->company->id) }}">
+                                        {{ $request->company->name }}
+                                    </a>
+                                @endif
+
+
+                            </td>
+
+                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">
                                 <a href="{{ route('job.show', $request->job->id) }}">
-                                    {{ $request->job->title }}
+                                    {{ $request->job->company }}
                                 </a>
                             </td>
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="{{ route('user.show', $request->user->id) }}">
-                                    {{ $request->user->name }}
-                                </a>
-                            </td>
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
-                                <a href="{{ route('user.show', $request->company->id) }}">
-                                    {{ $request->company->name }}
-                                </a>
-                            </td>
-                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
+                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">
                                 <a href="{{ asset('storage/' . $request->cv_path) }}" target="_blank">
                                     CV
                                 </a>
@@ -94,7 +101,7 @@
                 @else
                     <tr class="border-gray-300">
                         <td class="px-4 py-8 border-t border-b bordet-gray-300 text-lg">
-                            <p class="text-center">No Jobs Found</p>
+                            <p class="text-center">No Requests Found</p>
                         </td>
                     </tr>
                 @endunless

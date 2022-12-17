@@ -1,10 +1,19 @@
 <x-layout>
     <x-card class=" p-10 rounded max-w-lg mx-auto mt-24">
         <header class="text-center">
-            <h2 class="text-2xl font-bold uppercase mb-1">
-                Create a Job
-            </h2>
-            <p class="mb-4">Post a job to find an employee</p>
+
+
+            @if (auth()->user()->is_admin)
+                <h2 class="text-2xl font-bold uppercase mb-1">
+                    Create a Job
+                </h2>
+            @else
+                <h2 class="text-2xl font-bold uppercase mb-1">
+                    Create a Job
+                </h2>
+                <p class="mb-4">Post a job to find an employee</p>
+            @endif
+
         </header>
 
         <form method="POST" action="{{ route('my-job.store') }}" enctype="multipart/form-data">
