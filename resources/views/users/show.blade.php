@@ -15,11 +15,6 @@
         <table class="w-6/12 table-auto rounded-sm text-left ">
             <thead class="text-left text-xl "></thead>
             <tbody>
-                <tr class="border-gray-300 text-left">
-                    <td class="text-2xl mb-2 font-bold">ID</td>
-                    <td class="text-2xl mb-2 font-bold">:</td>
-                    <td class="text-2xl mb-2">{{ $user->id }}</td>
-                </tr>
 
                 <tr class="border-gray-300 text-left">
                     <td class="text-2xl mb-2 font-bold">Name</td>
@@ -35,6 +30,12 @@
 
                 @auth
                     @if (auth()->user()->is_admin)
+                        <tr class="border-gray-300 text-left">
+                            <td class="text-2xl mb-2 font-bold">ID</td>
+                            <td class="text-2xl mb-2 font-bold">:</td>
+                            <td class="text-2xl mb-2">{{ $user->id }}</td>
+                        </tr>
+
                         <tr class="border-gray-300 text-left">
                             <td class="text-2xl mb-2 font-bold">Account Type</td>
                             <td class="text-2xl mb-2 font-bold">:</td>

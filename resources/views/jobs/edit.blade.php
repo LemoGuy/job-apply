@@ -1,5 +1,6 @@
 <x-layout>
-
+    <a href="{{ url()->previous() }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
+    </a>
     <x-card class=" p-10 rounded max-w-lg mx-auto mt-24">
 
 
@@ -10,7 +11,17 @@
             <p class="mb-4">Edit: {{ $job->title }}</p>
         </header>
 
-        <form method="POST" action="{{ route('job.update', $job->id) }}" enctype="multipart/form-data">
+        {{-- check if the current user is admin or company --}}
+        <div hidden>
+            @if (auth()->user()->account_type == 'company')
+                {{ $route = route('my-job.update', $job->id) }}
+            @elseif (auth()->user()->is_admin)
+                {{ $route = route('job.update', $job->id) }}
+            @endif
+        </div>
+
+
+        <form method="POST" action="{{ $route }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-6">

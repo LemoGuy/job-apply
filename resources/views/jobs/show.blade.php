@@ -39,15 +39,16 @@
                                 class="fa-solid fa-envelope"></i>
                             Contact Employer</a>
 
-                        <a href="{{ $job->website }}" target="_blank"
+                        <div hidden>
+                            {{ $newvariable = "https://$job->website" }}
+                        </div>
+                        <a href="{{ $newvariable }}" target="_blank"
                             class="block bg-teal-900 text-white py-2 rounded-xl hover:opacity-80"><i
                                 class="fa-solid fa-globe"></i> Visit
                             Website</a>
-                        {{-- 
 
-                        @auth
 
-                            @if (auth()->user()->account_type == 'user') --}}
+                        {{-- @if (!auth()->user()->is_admin) --}}
                         @if ($job->requests_count == 0)
                             <a class="block bg-sky-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
                                 type="button" onclick="toggleModal('modal-id')"><i class="fa-solid fa-upload"></i>
@@ -55,14 +56,14 @@
                             </a>
                         @else
                             <a disabled
-                                class="bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 w-80 cursor-pointer"
+                                class="block bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
                                 type="button">
                                 Already applied!
                             </a>
                         @endif
-                        {{-- @endif
+                        {{-- @endif --}}
 
-                        @endauth --}}
+
 
                         <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
                             id="modal-id">
