@@ -12,6 +12,7 @@
             <thead class="text-left text-xl ">
                 <th>Company Name</th>
                 <th>Job Title</th>
+                <th>Applicants</th>
                 <th>Update</th>
                 <th>Action</th>
 
@@ -34,8 +35,8 @@
                     @foreach ($jobs as $job)
                         <tr class="border-gray-300 text-left">
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">
-                                {{-- <a href="{{ route('job.show', $job->id) }}"> --}}
-                                {{ $job->company }}
+                                <a href="{{ route('user.show', $job->user->id) }}">
+                                    {{ $job->user->name }}
                                 </a>
                             </td>
 

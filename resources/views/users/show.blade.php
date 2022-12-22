@@ -6,10 +6,21 @@
     <x-card class="p-10">
 
         <header>
-
-            <h1 class="text-3xl text-center font-bold mb-16 uppercase ">
-                User Profile
-            </h1>
+            @auth
+                @if (auth()->user()->is_admin)
+                    <h1 class="text-3xl text-center font-bold mb-16 uppercase ">
+                        Users Profile
+                    </h1>
+                @elseif (auth()->user()->account_type == 'company')
+                    <h1 class="text-3xl text-center font-bold mb-16 uppercase ">
+                        User Profile
+                    </h1>
+                @else
+                    <h1 class="text-3xl text-center font-bold mb-16 uppercase ">
+                        Company Profile
+                    </h1>
+                @endif
+            @endauth
         </header>
 
         <table class="w-6/12 table-auto rounded-sm text-left ">

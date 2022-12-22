@@ -30,7 +30,7 @@ class UserController extends Controller
 
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -41,7 +41,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'name' => ['required', 'min:3'], //atleaset 3 chars
+            'email' => ['required', 'email', 'unique:users'], //unique email with users table to email column
+            'password' => ['required', 'confirmed', 'min:6'],
+            'account_type' => ['required', 'String']
+            // 'password' => 'required|confirmed|min:6'
+
+        ]);
+
+
+        // Hash Password
+        $formFields['password'] = bcrypt($formFields['password']);
+
+        //Create User
+        $user = User::create($formFields);
+
+        return redirect()->route('user.index')->with('message', 'User created successfuly!');
     }
 
     /**

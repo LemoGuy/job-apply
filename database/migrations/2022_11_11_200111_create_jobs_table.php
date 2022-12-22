@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('logo')->nullable();
             $table->string('tags');
-            $table->string('company');
             $table->string('location');
             $table->string('email');
-            $table->string('website');
-            $table->longText('description');
+            $table->string('website')->nullable();
+            $table->unsignedInteger('duration');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

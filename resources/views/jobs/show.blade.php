@@ -12,7 +12,7 @@
                     alt="" />
 
                 <h3 class="text-2xl mb-2">{{ $job->title }}</h3>
-                <div class="text-xl font-bold mb-4">{{ $job->company }}</div>
+                <div class="text-xl font-bold mb-4">{{ $job->user->name }}</div>
 
                 <x-job-tags :tagsCsv="$job->tags" />
 
@@ -33,6 +33,30 @@
 
 
 
+
+
+                        </div>
+
+                        <div class="text-lg space-y-6">
+                            <p class="text-1xl font-bold mb-4">
+                                Created at:
+
+                                {{ $job->created_at }}
+
+                            </p>
+
+
+                        </div>
+
+                        <div class="text-lg space-y-6">
+                            <p class="text-1xl font-bold mb-4">
+                                Job duration:
+
+                                {{ $job->duration }}
+                                days
+                            </p>
+
+
                         </div>
                         <a href="mailto:{{ $job->email }}"
                             class="block bg-teal-800 text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
@@ -48,20 +72,39 @@
                             Website</a>
 
 
-                        {{-- @if (!auth()->user()->is_admin) --}}
-                        @if ($job->requests_count == 0)
-                            <a class="block bg-sky-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
-                                type="button" onclick="toggleModal('modal-id')"><i class="fa-solid fa-upload"></i>
-                                Apply for job
-                            </a>
+                        @if (auth()->check() && (auth()->user()->is_admin || auth()->user()->account_type == 'company'))
+                        @elseif (auth()->check())
+                            @if ($job->created_at->addDays($job->duration)->format('Y-m-d') <= today())
+                                <a disabled
+                                    class="block bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
+                                    type="button">
+                                    Deadline is over!
+                                </a>
+                            @elseif ($job->requests_count == 0)
+                                <a class="block bg-sky-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
+                                    type="button" onclick="toggleModal('modal-id')"><i class="fa-solid fa-upload"></i>
+                                    Apply for job
+                                </a>
+                            @else
+                                <a disabled
+                                    class="block bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
+                                    type="button">
+                                    Already applied!
+                                </a>
+                            @endif
                         @else
-                            <a disabled
+                            <a href="{{ route('login') }}"
                                 class="block bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
                                 type="button">
-                                Already applied!
+                                Sign in to apply
                             </a>
+
                         @endif
-                        {{-- @endif --}}
+
+                        <a href="{{ asset('template cv/SE502-SoftwareProjectManagement-Week2.pdf') }}" target="_blank"
+                            class="block  text-black mt-6 py-2 ">
+                            Download template CV
+                        </a>
 
 
 

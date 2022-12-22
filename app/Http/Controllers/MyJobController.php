@@ -12,6 +12,7 @@ class MyJobController extends Controller
     public function index()
     {
         $jobs = Job::where('user_id', auth()->id())
+            ->withCount('requests')
             ->get();
 
         return view('jobs.my', [
@@ -24,7 +25,9 @@ class MyJobController extends Controller
     {
         $job = Job::withCount(['requests' => function ($query) {
             $query->where('user_id', auth()->id());
-        }])->findOrFail($id);
+        }])
+            ->with('user')
+            ->findOrFail($id);
         return view('jobs.show', [
             'job' => $job
         ]);
@@ -39,21 +42,14 @@ class MyJobController extends Controller
     //store job data
     public function store(Request $request)
     {
-        // dd($request->all());
-
-        // dd($request->file('logo')->store());
-
         $formFields = $request->validate([
             'title' => 'required',
-            'company' => ['required', Rule::unique(
-                'jobs',
-                'company'
-            )],
             'location' => 'required',
-            'website' => 'required',
+            'website' => 'nullable',
+            'duration' => 'required|integer',
             'email' => ['required', 'email'],
             'tags' => 'required',
-            'description' => 'required'
+            'description' => 'nullable'
         ]);
 
 
@@ -93,12 +89,12 @@ class MyJobController extends Controller
 
             $formFields = $request->validate([
                 'title' => 'required',
-                'company' => ['required'],
                 'location' => 'required',
-                'website' => 'required',
+                'website' => 'nullable',
+                'duration' => 'required|integer',
                 'email' => ['required', 'email'],
                 'tags' => 'required',
-                'description' => 'required'
+                'description' => 'nullable'
             ]);
         } else {
             abort(403, 'Unauthorized Action');
@@ -126,6 +122,7 @@ class MyJobController extends Controller
         // make sure logged in user is the owner
         if (auth()->id() == $job->user_id) {
 
+            $job->requests()->delete();
             $job->delete();
             return redirect('/')->with('message', 'Job deleted successfuly!');
         } else {

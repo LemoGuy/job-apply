@@ -14,6 +14,7 @@
 
             <thead class="text-left text-xl text-left">
                 <th>Job Title</th>
+                <th>Applicants</th>
                 <th>Update</th>
                 <th>Action</th>
 
@@ -27,6 +28,11 @@
                                 <a href="{{ route('my-job.show', $job->id) }}">
                                     {{ $job->title }}
                                 </a>
+                            </td>
+
+                            <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">
+
+                                {{ $job->requests_count }}
                             </td>
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">
                                 <a href="{{ route('my-job.edit', $job->id) }}" class="text-blue-400 px-6 py-2 rounded-xl"><i

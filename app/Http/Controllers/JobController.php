@@ -14,7 +14,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all();
+        $jobs = Job::with('user')->get();
 
         return view('jobs.index', [
             'jobs' => $jobs,
@@ -52,7 +52,10 @@ class JobController extends Controller
     {
         $job = Job::withCount(['requests' => function ($query) {
             $query->where('user_id', auth()->id());
-        }])->findOrFail($id);
+        }])
+
+            ->with('user')
+            ->findOrFail($id);
         return view('jobs.show', [
             'job' => $job
         ]);
@@ -85,12 +88,12 @@ class JobController extends Controller
 
             $formFields = $request->validate([
                 'title' => 'required',
-                'company' => ['required'],
                 'location' => 'required',
-                'website' => 'required',
+                'website' => 'nullable',
+                'duration' => 'required|integer',
                 'email' => ['required', 'email'],
                 'tags' => 'required',
-                'description' => 'required'
+                'description' => 'nullable'
             ]);
         } else {
             abort(403, 'Unauthorized Action');
@@ -123,6 +126,7 @@ class JobController extends Controller
         if (auth()->user()->is_admin) {
             $job = Job::findOrFail($id);
 
+            $job->requests()->delete();
             $job->delete();
             return redirect('/job')->with('message', 'Job deleted successfuly!');
         } else {
