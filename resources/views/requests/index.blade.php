@@ -11,7 +11,7 @@
                 @if (auth()->user()->account_type == 'company')
                     <th>User Name</th>
                 @elseif (auth()->user()->account_type == 'user')
-                    <th>Company Name</th>
+                    <th>Recruiter Name</th>
                 @endif
                 <th>Job Title</th>
                 <th>Uploaded File</th>
@@ -43,7 +43,7 @@
 
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">
                                 <a href="{{ route('job.show', $request->job->id) }}">
-                                    {{ $request->job->company }}
+                                    {{ $request->job->title }}
                                 </a>
                             </td>
                             <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">

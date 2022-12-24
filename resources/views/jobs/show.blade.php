@@ -30,11 +30,6 @@
 
                         <div>
 
-
-
-
-
-
                         </div>
 
                         <div class="text-lg space-y-6">
@@ -44,8 +39,6 @@
                                 {{ $job->created_at }}
 
                             </p>
-
-
                         </div>
 
                         <div class="text-lg space-y-6">
@@ -56,7 +49,6 @@
                                 days
                             </p>
 
-
                         </div>
                         <a href="mailto:{{ $job->email }}"
                             class="block bg-teal-800 text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
@@ -64,7 +56,7 @@
                             Contact Employer</a>
 
                         <div hidden>
-                            {{ $newvariable = "https://$job->website" }}
+                            {{ $newvariable = "$job->website" }}
                         </div>
                         <a href="{{ $newvariable }}" target="_blank"
                             class="block bg-teal-900 text-white py-2 rounded-xl hover:opacity-80"><i
@@ -85,6 +77,11 @@
                                     type="button" onclick="toggleModal('modal-id')"><i class="fa-solid fa-upload"></i>
                                     Apply for job
                                 </a>
+
+                                <a href="{{ asset('template cv/SE502-SoftwareProjectManagement-Week2.pdf') }}"
+                                    target="_blank" class="block  text-black mt-6 py-2 ">
+                                    Download template CV
+                                </a>
                             @else
                                 <a disabled
                                     class="block bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
@@ -100,11 +97,6 @@
                             </a>
 
                         @endif
-
-                        <a href="{{ asset('template cv/SE502-SoftwareProjectManagement-Week2.pdf') }}" target="_blank"
-                            class="block  text-black mt-6 py-2 ">
-                            Download template CV
-                        </a>
 
 
 

@@ -19,6 +19,13 @@
         <form method="POST" action="{{ route('my-job.store') }}" enctype="multipart/form-data">
             @csrf
 
+            {{-- @if (auth()->user()->is_admin)
+                <div class="mb-6">
+                    <label for="title" class="inline-block text-lg mb-2">Company Name</label>
+                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="company"
+                        value="{{ old('company') }}" />
+            @endif --}}
+
             <div class="mb-6">
                 <label for="title" class="inline-block text-lg mb-2">Job Title</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title"

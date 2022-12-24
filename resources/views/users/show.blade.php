@@ -9,15 +9,15 @@
             @auth
                 @if (auth()->user()->is_admin)
                     <h1 class="text-3xl text-center font-bold mb-16 uppercase ">
-                        Users Profile
+                        User Profile
                     </h1>
                 @elseif (auth()->user()->account_type == 'company')
                     <h1 class="text-3xl text-center font-bold mb-16 uppercase ">
-                        User Profile
+                        Applicant Profile
                     </h1>
                 @else
                     <h1 class="text-3xl text-center font-bold mb-16 uppercase ">
-                        Company Profile
+                        Recruiter Profile
                     </h1>
                 @endif
             @endauth

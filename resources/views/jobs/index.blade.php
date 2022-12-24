@@ -12,7 +12,7 @@
             <thead class="text-left text-xl ">
                 <th>Company Name</th>
                 <th>Job Title</th>
-                <th>Applicants</th>
+                {{-- <th>Applicants</th> --}}
                 <th>Update</th>
                 <th>Action</th>
 
@@ -45,6 +45,11 @@
                                     {{ $job->title }}
                                 </a>
                             </td>
+
+                            {{-- <td class="px-4 py-8 border-t border-b border-gray-300 text-lg text-left">
+
+                                {{ $job->requests_count }}
+                            </td> --}}
 
 
 
