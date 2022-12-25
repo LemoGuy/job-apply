@@ -5,15 +5,37 @@
                 Create User
             </h2>
 
-            <p class="mb-4">Create an account to post jobs</p>
+            <script>
+                function chnageAccountType() {
+                    var type = document.getElementById("account_type").value;
+                    if (type == 'user') {
+                        document.getElementById("name").innerHTML = "Applicant Name";
+                    } else
+                        document.getElementById("name").innerHTML = "Recruiter Name";
+                }
+            </script>
         </header>
 
         <form method="POST" action="{{ route('user.store') }}">
             @csrf
 
             <div class="mb-6">
-                <label for="name" class="inline-block text-lg mb-2">
-                    Name
+                <label for="account_type" class="inline-block text-lg mb-2">Account Type</label>
+                <select onchange="chnageAccountType()" id="account_type" class="border border-gray-200 rounded p-2 w-full"
+                    name="account_type" value="{{ old('account_type') }}">
+
+                    <option value="user">Applicant</option>
+                    <option value="company">Recruiter</option>
+
+
+                </select>
+                @error('account_type')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="mb-6">
+                <label id="name" for="name" class="inline-block text-lg mb-2">
+                    Applicant Name
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="name"
                     value="{{ old('name') }}" />
@@ -32,20 +54,6 @@
                 @enderror
             </div>
 
-            <div class="mb-6">
-                <label for="account_type" class="inline-block text-lg mb-2">Account Type</label>
-                <select id="account_type" class="border border-gray-200 rounded p-2 w-full" name="account_type"
-                    value="{{ old('account_type') }}">
-
-                    <option value="user">User</option>
-                    <option value="company">Company</option>
-
-
-                </select>
-                @error('account_type')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
 
             <div class="mb-6">
                 <label for="password" class="inline-block text-lg mb-2">

@@ -1,7 +1,10 @@
 <x-layout>
-    <a href="{{ url('/my-job') }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
-    </a>
-    <x-card class="p-10">
+    <div class="bg-[#DCEFFA] block p-5 rounded-lg shadow-lg bg-white  max-w-full resize-none mt-20 mb-10 mx-16">
+
+        <a href="{{ url('/my-job') }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i>
+            Back
+        </a>
+
         <header>
             <h1 class="text-3xl text-center font-bold mb-16 uppercase">
                 Manage Jobs
@@ -65,5 +68,5 @@
                 @endunless
             </tbody>
         </table>
-    </x-card>
+    </div>
 </x-layout>

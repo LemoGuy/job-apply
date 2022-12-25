@@ -1,5 +1,5 @@
 <x-layout>
-    <x-card class=" p-10 rounded max-w-lg mx-auto mt-24">
+    <x-card class=" p-10 rounded-2xl max-w-lg mx-auto mt-24 mb-16 ">
         <header class="text-center">
 
 
@@ -18,13 +18,6 @@
 
         <form method="POST" action="{{ route('my-job.store') }}" enctype="multipart/form-data">
             @csrf
-
-            {{-- @if (auth()->user()->is_admin)
-                <div class="mb-6">
-                    <label for="title" class="inline-block text-lg mb-2">Company Name</label>
-                    <input type="text" class="border border-gray-200 rounded p-2 w-full" name="company"
-                        value="{{ old('company') }}" />
-            @endif --}}
 
             <div class="mb-6">
                 <label for="title" class="inline-block text-lg mb-2">Job Title</label>
@@ -89,7 +82,7 @@
                     Tags (Comma Separated)
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
-                    placeholder="Example: Doctor, Engineer, Developer, etc" value="{{ old('tags') }}" />
+                    placeholder="Example: Full-time or Part-time,Doctor, Developer, etc" value="{{ old('tags') }}" />
 
                 @error('tags')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -125,11 +118,11 @@
             </div>
 
             <div class="mb-6">
-                <button class="bg-sky-900 text-white rounded py-2 px-4 hover:bg-sky-600">
+                <button class="bg-[#1C658C] text-white rounded py-2 px-4 hover:bg-[#5FA5CE]">
                     Create Job
                 </button>
 
-                <a href="/" class="text-sky-500 ml-4"> Back </a>
+                <a href="/" class="text-[#1C658C] font-semibold pl-60 ml-4"> Back </a>
             </div>
         </form>
     </x-card>

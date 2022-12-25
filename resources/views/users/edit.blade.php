@@ -2,9 +2,9 @@
     <a href="{{ url()->previous() }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i>
         Back
     </a>
-    <x-card class="p-10  max-w-lg mx-auto mt-24">
+    <x-card class="p-10  max-w-lg mx-auto mt-24 mb-10">
         <header class="text-center">
-            <h2 class="text-2xl font-bold uppercase mb-1">
+            <h2 class="text-2xl font-bold uppercase mb-10">
                 Update User
             </h2>
         </header>
@@ -35,7 +35,7 @@
             </div>
             <div class="mb-6">
                 <button type="submit" name="action" value="user_info"
-                    class="bg-sky-900 text-white rounded py-2 px-4 hover:bg-sky-600">
+                    class="bg-[#1C658C] text-white rounded py-2 px-4 hover:bg-[#5FA5CE]">
                     Update
                 </button>
             </div>
@@ -73,7 +73,7 @@
 
             <div class="mb-6">
                 <button type="submit" name="action" value="user_password"
-                    class="bg-sky-900 text-white rounded py-2 px-4 hover:bg-sky-600">
+                    class="bg-[#1C658C] text-white rounded py-2 px-4 hover:bg-[#5FA5CE]">
                     Update
                 </button>
             </div>

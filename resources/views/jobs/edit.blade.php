@@ -1,7 +1,7 @@
 <x-layout>
     <a href="{{ url()->previous() }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
     </a>
-    <x-card class=" p-10 rounded max-w-lg mx-auto mt-24">
+    <x-card class=" p-10 rounded max-w-lg mx-auto mt-24 mb-10">
 
 
         <header class="text-center">
@@ -123,11 +123,11 @@
             </div>
 
             <div class="mb-6">
-                <button class="bg-sky-900 text-white rounded py-2 px-4 hover:bg-sky-600">
+                <button class="bg-[#1C658C] text-white rounded py-2 px-4 hover:bg-[#5FA5CE]">
                     Update Job
                 </button>
 
-                <a href="/" class="text-sky-500 ml-4"> Back </a>
+                <a href="/" class="text-[#1C658C] pl-60 ml-4"> Back </a>
             </div>
         </form>
     </x-card>

@@ -1,11 +1,10 @@
 <x-layout>
-    @include('partials._search')
 
 
     <a href="{{ url()->previous() }}" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
     </a>
-    <div class="mx-4">
-        <x-card class="p-10">
+    <div class="mx-16 mt-16">
+        <x-card class="p-10 mx-16 mb-10 mt-4">
             <div class="flex flex-col items-center justify-center text-center">
                 <img class="w-48 mr-6 mb-6"
                     src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/images/no-image.png') }}"
@@ -51,7 +50,9 @@
 
                         </div>
                         <a href="mailto:{{ $job->email }}"
-                            class="block bg-teal-800 text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
+                            class=" block text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600
+                            hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 
+                            dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                 class="fa-solid fa-envelope"></i>
                             Contact Employer</a>
 
@@ -59,7 +60,9 @@
                             {{ $newvariable = "$job->website" }}
                         </div>
                         <a href="{{ $newvariable }}" target="_blank"
-                            class="block bg-teal-900 text-white py-2 rounded-xl hover:opacity-80"><i
+                            class="block text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 
+                            hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 
+                            dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                 class="fa-solid fa-globe"></i> Visit
                             Website</a>
 
@@ -68,30 +71,34 @@
                         @elseif (auth()->check())
                             @if ($job->created_at->addDays($job->duration)->format('Y-m-d') <= today())
                                 <a disabled
-                                    class="block bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
+                                    class="cursor-pointer block text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                                     type="button">
                                     Deadline is over!
                                 </a>
                             @elseif ($job->requests_count == 0)
-                                <a class="block bg-sky-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
+                                <a class=" cursor-pointer block text-white bg-gradient-to-r from-[#1C658C] to-[#5FA5CE] hover:bg-gradient-to-bl
+                                focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium 
+                                rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                                     type="button" onclick="toggleModal('modal-id')"><i class="fa-solid fa-upload"></i>
                                     Apply for job
                                 </a>
 
                                 <a href="{{ asset('template cv/SE502-SoftwareProjectManagement-Week2.pdf') }}"
-                                    target="_blank" class="block  text-black mt-6 py-2 ">
+                                    target="_blank" class="block  text-sky-500 mt-6 py-2 ">
                                     Download template CV
                                 </a>
                             @else
                                 <a disabled
-                                    class="block bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
+                                    class="cursor-pointer block text-white bg-gradient-to-r from-lime-200 to-lime-500 hover:bg-gradient-to-bl
+                                    focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium 
+                                    rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                                     type="button">
                                     Already applied!
                                 </a>
                             @endif
                         @else
                             <a href="{{ route('login') }}"
-                                class="block bg-blue-900 text-white mt-6 py-2 rounded-xl hover:opacity-80 cursor-pointer"
+                                class="cursor-pointer block text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                                 type="button">
                                 Sign in to apply
                             </a>
