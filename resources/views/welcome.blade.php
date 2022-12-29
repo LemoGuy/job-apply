@@ -1,5 +1,7 @@
 <x-layout class="">
     <section>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- home background -->
         <div id="carouselExampleSlidesOnly" class="carousel slide relative " data-bs-ride="carousel">
             <div class="carousel-inner relative w-full overflow-hidden ">
@@ -38,7 +40,7 @@
                                         Join Us</a>
                                 </div>
                                 <div>
-                                    <a href="" class="text-xl underline">Newest Jobs</a>
+                                    <a href="#jobs" class="text-xl underline">Recent Jobs</a>
                                 </div>
                             @endauth
                         </div>
@@ -139,16 +141,24 @@
 
 
 
+
+                </div>
+
+
+                <div id="jobs">
+
                 </div>
             </div>
 
 
         </div>
 
+
         <!-- new job -->
+        <br>
+        <br>
 
-
-        <h1 class="flex justify-center text-2xl text-[#1C658C] font-bold my-4">Newest Job</h1>
+        <h1 class="flex justify-center text-2xl text-[#1C658C] font-bold my-4">Recent Job</h1>
 
         <div class="lg:grid lg:grid-cols gap-4 space-y-4 md:space-y-0 mx-4 flex flex-col justify-center items-center">
 
