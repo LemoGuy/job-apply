@@ -49,3 +49,17 @@ Route::post('/users/authenticate', [AuthController::class, 'authenticate']);
 
 // Log user out
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
+
+
+// About
+Route::get('/about', [AuthController::class, 'about']);
+
+// Services
+Route::get('/services', [AuthController::class, 'services']);
+
+// Contact
+Route::get('/contact', [AuthController::class, 'contact']);
+
+
+// // Test
+// Route::get('/test', [AuthController::class, 'test']);

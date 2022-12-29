@@ -72,17 +72,17 @@
                                 @if ($request->status == 'Pending' || $request->status == 'Rejected')
                                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                                         <form method="POST" action="{{ route('my-request.update', $request->id) }}">
-                                            <input type="hidden" name="status" value="Confirmed">
+                                            <input type="hidden" name="status" value="Accepted">
                                             @csrf
                                             @method('PUT')
 
-                                            <button class="text-sky-500"><i class="fa-solid fa-check"></i> Confirm</button>
+                                            <button class="text-sky-500"><i class="fa-solid fa-check"></i> Accept</button>
 
                                         </form>
                                     </td>
                                 @endif
 
-                                @if ($request->status == 'Pending' || $request->status == 'Confirmed')
+                                @if ($request->status == 'Pending' || $request->status == 'Accepted')
                                     <td class="px-4 py-8 border-t border-b border-gray-300 text-lg">
                                         <form method="POST" action="{{ route('my-request.update', $request->id) }}">
                                             <input type="hidden" name="status" value="Rejected">

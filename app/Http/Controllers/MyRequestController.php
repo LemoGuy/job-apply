@@ -117,7 +117,7 @@ class MyRequestController extends Controller
         ]);
 
         // TODO!
-        // Mail::to($rq->user->email)->send(new JobRequestStatusUpdated($rq));
+        Mail::to($rq->user->email)->send(new JobRequestStatusUpdated($rq));
 
         return redirect()->back()->with('message', 'Status updated successfully!');
     }

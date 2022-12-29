@@ -164,20 +164,20 @@
 
 
                         <li>
-                            <a href="#"
+                            <a href="/"
                                 class="text-base block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-[#1C658C] md:p-0 dark:text-white"
                                 aria-current="page">Home</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/about"
                                 class="text-base block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#1C658C] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/services"
                                 class="text-base block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#1C658C] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/contact"
                                 class="text-base block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#1C658C] md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
                         </li>
 
@@ -226,13 +226,13 @@
                             <a href="/" class="hover:underline">Home</a>
                         </li>
                         <li class="mb-4">
-                            <a href="/" class="hover:underline">About Us</a>
+                            <a href="/about" class="hover:underline">About Us</a>
                         </li>
                         <li class="mb-4">
-                            <a href="/" class="hover:underline">Service</a>
+                            <a href="/services" class="hover:underline">Service</a>
                         </li>
                         <li>
-                            <a href="/" class="hover:underline">Contact</a>
+                            <a href="/contact" class="hover:underline">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -256,10 +256,10 @@
                     <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact Us</h2>
                     <ul class="text-gray-600 dark:text-gray-400">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline">call(00964)7500000000</a>
+                            <p href="#" class="hover:underline">call(00964)7500000000</p>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline">OurTeam@gmail.com</a>
+                            <p href="#" class="hover:underline">OurTeam@gmail.com</p>
                         </li>
                     </ul>
                 </div>

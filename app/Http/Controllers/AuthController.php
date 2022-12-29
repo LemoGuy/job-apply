@@ -76,4 +76,28 @@ class AuthController extends Controller
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
+
+
+    public function about()
+    {
+        return view('about');
+    }
+
+
+    public function services()
+    {
+        return view('services');
+    }
+
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+
+    // public function test()
+    // {
+    //     return view('mails.job-request-status-updated');
+    // }
 }

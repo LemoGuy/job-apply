@@ -83,8 +83,8 @@
                                     Apply for job
                                 </a>
 
-                                <a href="{{ asset('template cv/SE502-SoftwareProjectManagement-Week2.pdf') }}"
-                                    target="_blank" class="block  text-sky-500 mt-6 py-2 ">
+                                <a href="{{ asset('template cv/Template-1.docx') }}" target="_blank"
+                                    class="block  text-sky-500 mt-6 py-2 ">
                                     Download template CV
                                 </a>
                             @else
