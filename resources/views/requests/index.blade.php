@@ -64,7 +64,9 @@
                                             @csrf
                                             @method('DELETE')
 
-                                            <button class="text-sky-500"><i class="fa-solid fa-trash"></i> Delete</button>
+                                            <button
+                                                class="flex items-center justify-center bg-[#1C658C] text-white rounded-xl py-1 px-3 mr-2 text-xs">
+                                                Delete</button>
                                         </form>
                                     </td>
                                 @endif
@@ -76,8 +78,10 @@
                                             @csrf
                                             @method('PUT')
 
-                                            <button class="text-sky-500"><i class="fa-solid fa-check"></i> Accept</button>
 
+                                            <button
+                                                class="flex items-center justify-center bg-[#1C658C] text-white rounded-xl py-1 px-3 mr-2 text-xs">
+                                                Accpect</button>
                                         </form>
                                     </td>
                                 @endif
@@ -89,7 +93,8 @@
                                             @csrf
                                             @method('PUT')
 
-                                            <button class="text-red-500"><i class="fa-solid fa-times"></i>
+                                            <button
+                                                class="flex items-center justify-center bg-[#1C658C] text-white rounded-xl py-1 px-3 mr-2 text-xs">
                                                 Reject</button>
                                         </form>
                                     </td>

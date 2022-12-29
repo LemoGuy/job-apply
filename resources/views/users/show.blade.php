@@ -51,7 +51,13 @@
                             <tr class="border-gray-300 text-left">
                                 <td class="text-2xl mb-2 font-bold">Account Type</td>
                                 <td class="text-2xl mb-2 font-bold">:</td>
-                                <td class="text-2xl mb-2">{{ $user->account_type }}</td>
+                                <td class="text-2xl mb-2">
+                                    @if ($user->account_type == 'company')
+                                        Recruiter
+                                    @elseif ($user->account_type == 'user')
+                                        Applicant
+                                    @endif
+                                </td>
                             </tr>
 
                             <tr class="border-gray-300 text-left">
