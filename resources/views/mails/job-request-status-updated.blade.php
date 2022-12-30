@@ -45,10 +45,15 @@
 
                 <div class="mt-4">
 
-                    <p class="mt-4 text-sm">Job Apply
-                    </p>
+
                     <div class="flex justify-center">
-                        <img src="{{ asset('imgs/logo.png') }}" style="height: 75px; width:75px;">
+
+                        <p class="mt-4 text-sm">Job Apply
+                            <a href="https://job-apply.devistan.com/">
+                                <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
+
+                            </a>
+                        </p>
 
                     </div><br><br>
                 </div>
@@ -83,10 +88,14 @@
 
                 <div class="mt-4">
 
-                    <p class="mt-4 text-sm">Job Apply
-                    </p>
                     <div class="flex justify-center">
-                        <img src="{{ asset('imgs/logo.png') }}" style="height: 75px; width:75px;">
+
+                        <p class="mt-4 text-sm">Job Apply
+                            <a href="https://job-apply.devistan.com/">
+                                <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
+
+                            </a>
+                        </p>
 
                     </div><br><br>
                 </div>
