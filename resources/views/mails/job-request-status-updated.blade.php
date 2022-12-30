@@ -20,10 +20,7 @@
 
             <div class="max-w-xl p-8 text-center text-gray-800 bg-white shadow-xl lg:max-w-3xl rounded-3xl lg:p-12">
                 <h3 class="text-2xl">Dear {{ $request->user->name }}</h3>
-                <div class="flex justify-center">
-                    <img src="{{ asset('imgs/logo.png') }}" style="height: 100px; width:100px;">
 
-                </div><br><br>
 
                 <p>Congratulations! After reviewing your application for the {{ $request->job->title }} position at
                     {{ $request->company->name }}, we
@@ -50,6 +47,10 @@
 
                     <p class="mt-4 text-sm">Job Apply
                     </p>
+                    <div class="flex justify-center">
+                        <img src="{{ asset('imgs/logo.png') }}" style="height: 100px; width:100px;">
+
+                    </div><br><br>
                 </div>
             </div>
         @else
@@ -57,10 +58,7 @@
 
             <div class="max-w-xl p-8 text-center text-gray-800 bg-white shadow-xl lg:max-w-3xl rounded-3xl lg:p-12">
                 <h3 class="text-2xl">Dear {{ $request->user->name }}</h3>
-                <div class="flex justify-center">
-                    <img src="{{ asset('imgs/logo.png') }}" style="height: 100px; width:100px;">
 
-                </div><br><br>
 
                 <p>We would like to thank you for your application for the position {{ $request->job->title }} at
                     {{ $request->company->name }}, </p>
@@ -87,6 +85,10 @@
 
                     <p class="mt-4 text-sm">Job Apply
                     </p>
+                    <div class="flex justify-center">
+                        <img src="{{ asset('imgs/logo.png') }}" style="height: 100px; width:100px;">
+
+                    </div><br><br>
                 </div>
             </div>
         @endif
