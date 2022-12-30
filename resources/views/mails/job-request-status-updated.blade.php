@@ -22,11 +22,13 @@
                 <h3 class="text-2xl">Dear {{ $request->user->name }}</h3>
 
 
-                <p>Congratulations! After reviewing your application for the {{ $request->job->title }} position at
-                    {{ $request->company->name }}, we
+                <p>Congratulations! After reviewing your application for the <b>{{ $request->job->title }}</b> position
+                    at
+                    <b> {{ $request->company->name }}</b>, we
                     are excited to move forward with the interview process as it appears that your qualifications match
                     the
-                    job requirements,</p>
+                    job requirements,
+                </p>
 
                 <p>
 
@@ -65,8 +67,9 @@
                 <h3 class="text-2xl">Dear {{ $request->user->name }}</h3>
 
 
-                <p>We would like to thank you for your application for the position {{ $request->job->title }} at
-                    {{ $request->company->name }}, </p>
+                <p>We would like to thank you for your application for the position<b> {{ $request->job->title }}</b> at
+                    <b> {{ $request->company->name }}</b>,
+                </p>
 
                 <p>
 
