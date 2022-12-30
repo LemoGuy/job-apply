@@ -3,7 +3,7 @@
 <x-card class="rounded-lg">
     <div class="flex  ">
         <img class="hidden w-48 mr-6 md:block "
-            src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/images/logo.png') }}" alt="" />
+            src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/imgs/logo.png') }}" alt="" />
         <div>
             <h3 class="text-2xl">
                 <a href="{{ route('job.show', $job->id) }}">{{ $job->title }}</a>

@@ -45,7 +45,7 @@
                 </div>
 
                 <img class=" w-full h-96 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none "
-                    src="{{ asset('images/aboutus2.jpg') }}" alt="about us 2" />
+                    src="{{ asset('imgs/aboutus2.jpg') }}" alt="about us 2" />
 
             </div>
         </div>

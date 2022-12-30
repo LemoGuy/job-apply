@@ -10,15 +10,15 @@
 
                 <div
                     class=" brightness-50 carousel-item active relative float-left w-full absolute top-0 left-0 w-full h-full  bg-no-repeat bg-center">
-                    <img src="{{ asset('images/home.jpg') }}" class="block w-full" alt="home" />
+                    <img src="{{ asset('imgs/home.jpg') }}" class="block w-full" alt="home" />
                 </div>
 
                 <div class="brightness-50 carousel-item relative float-left w-full">
-                    <img src="{{ asset('images/home2.jpg') }}" class="block w-full" alt="home2" />
+                    <img src="{{ asset('imgs/home2.jpg') }}" class="block w-full" alt="home2" />
                 </div>
 
                 <div class="brightness-50 carousel-item relative float-left w-full">
-                    <img src="{{ asset('images/home3.jpg') }}" class="block w-full" alt="home3" />
+                    <img src="{{ asset('imgs/home3.jpg') }}" class="block w-full" alt="home3" />
                 </div>
 
 
@@ -55,7 +55,7 @@
             <div class="flex flex-col  md:flex-row md:max-w-4xl  bg-white shadow-lg">
 
                 <img class=" w-full h-96 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none "
-                    src="{{ asset('images/aboutus1.jpg') }}" alt="about us 1" />
+                    src="{{ asset('imgs/aboutus1.jpg') }}" alt="about us 1" />
 
                 <div class="p-6 flex flex-col justify-start">
                     <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
@@ -82,7 +82,7 @@
                 </div>
 
                 <img class=" w-full h-96 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none "
-                    src="{{ asset('images/aboutus2.jpg') }}" alt="about us 2" />
+                    src="{{ asset('imgs/aboutus2.jpg') }}" alt="about us 2" />
 
             </div>
         </div>
@@ -95,7 +95,7 @@
             <div class="flex  justify-center justify-around mb-6">
 
                 <div class="p-6 block  max-w-sm text-center">
-                    <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('images/company.png') }}"
+                    <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('imgs/company.png') }}"
                         alt="Default avatar">
                     <p class="text-gray-700 text-base mb-4">
                         With supporting text below as a natural lead-in to additional content.
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="p-6 block  max-w-sm text-center">
-                    <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('images/location.png') }}"
+                    <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('imgs/location.png') }}"
                         alt="Default avatar">
                     <p class="text-gray-700 text-base mb-4">
                         With supporting text below as a natural lead-in to additional content.
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="p-6 block  max-w-sm text-center">
-                    <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('images/job.png') }}" alt="Default avatar">
+                    <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('imgs/job.png') }}" alt="Default avatar">
                     <p class="text-gray-700 text-base mb-4">
                         With supporting text below as a natural lead-in to additional content.
                     </p>
@@ -137,7 +137,7 @@
                     </div>
                     <!-- slide show -->
                     <img class=" w-full h-96 md:h-auto object-cover md:w-1/2 rounded-t-lg md:rounded-none "
-                        src="{{ asset('images/rek.png') }}" alt="about us 2" />
+                        src="{{ asset('imgs/rek.png') }}" alt="about us 2" />
 
 
 

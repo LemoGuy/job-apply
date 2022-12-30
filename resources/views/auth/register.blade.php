@@ -12,7 +12,7 @@
 
                                         <div class="text-center">
                                             <a href="/" class="flex items-center">
-                                                <img src="{{ asset('images/logo.png') }}" class="h-6 mr-3 sm:h-9"
+                                                <img src="{{ asset('imgs/logo.png') }}" class="h-6 mr-3 sm:h-9"
                                                     alt="Flowbite Logo">
                                                 <span
                                                     class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Job
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="bg-cover bg-center lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none "
                                     style="
-          background-image: url({{ asset('images/login.png') }})
+          background-image: url({{ asset('imgs/login.png') }})
         ">
                                     <div class="text-[#1C658C] px-4 py-6 md:p-12 md:mx-6 mb-96">
                                         <h4 class="text-xl font-semibold mb-20 ml-20">We are more than just a company

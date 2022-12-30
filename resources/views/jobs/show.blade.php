@@ -7,7 +7,7 @@
         <x-card class="p-10 mx-16 mb-10 mt-4">
             <div class="flex flex-col items-center justify-center text-center">
                 <img class="w-48 mr-6 mb-6"
-                    src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/images/no-image.png') }}"
+                    src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('/imgs/no-image.png') }}"
                     alt="" />
 
                 <h3 class="text-2xl mb-2">{{ $job->title }}</h3>

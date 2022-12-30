@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="images/favicon.ico" />
+    <link rel="icon" href="imgs/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -40,7 +40,7 @@
 
         <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="/" class="flex items-center">
-                <img src="{{ asset('images/logo.png') }}" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo">
+                <img src="{{ asset('imgs/logo.png') }}" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo">
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Job Apply</span>
             </a>
 
@@ -215,7 +215,7 @@
         <div class="md:flex md:justify-around">
             <div class="mb-6 md:mb-0">
                 <a href="http://127.0.0.1:8000/" class="flex items-center">
-                    <img src="{{ asset('images/logo.png') }}" class="mr-3 h-8" alt="JobApply Logo" />
+                    <img src="{{ asset('imgs/logo.png') }}" class="mr-3 h-8" alt="JobApply Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Job Apply</span>
                 </a>
             </div>
