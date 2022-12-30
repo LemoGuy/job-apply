@@ -48,9 +48,9 @@
 
                     <div class="flex justify-center">
 
-                        <p class="mt-4 text-sm">Job Apply
+                        <p class="mt-4 text-sm">Job Apply<br>
                             <br> <a href="https://job-apply.devistan.com/">
-                                <br><img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
+                                <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
 
                             </a>
                         </p>
@@ -90,9 +90,9 @@
 
                     <div class="flex justify-center">
 
-                        <p class="mt-4 text-sm">Job Apply
+                        <p class="mt-4 text-sm">Job Apply<br>
                             <br><a href="https://job-apply.devistan.com/">
-                                <br> <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
+                                <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
 
                             </a>
                         </p>
