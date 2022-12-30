@@ -50,7 +50,7 @@
 
                         <p class="mt-4 text-sm">Job Apply
                             <br> <a href="https://job-apply.devistan.com/">
-                                <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
+                                <br><img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
 
                             </a>
                         </p>
@@ -92,7 +92,7 @@
 
                         <p class="mt-4 text-sm">Job Apply
                             <br><a href="https://job-apply.devistan.com/">
-                                <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
+                                <br> <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
 
                             </a>
                         </p>
