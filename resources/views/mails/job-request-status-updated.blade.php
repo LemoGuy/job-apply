@@ -48,7 +48,7 @@
                     <p class="mt-4 text-sm">Job Apply
                     </p>
                     <div class="flex justify-center">
-                        <img src="{{ asset('imgs/logo.png') }}" style="height: 100px; width:100px;">
+                        <img src="{{ asset('imgs/logo.png') }}" style="height: 75px; width:75px;">
 
                     </div><br><br>
                 </div>
@@ -86,7 +86,7 @@
                     <p class="mt-4 text-sm">Job Apply
                     </p>
                     <div class="flex justify-center">
-                        <img src="{{ asset('imgs/logo.png') }}" style="height: 100px; width:100px;">
+                        <img src="{{ asset('imgs/logo.png') }}" style="height: 75px; width:75px;">
 
                     </div><br><br>
                 </div>

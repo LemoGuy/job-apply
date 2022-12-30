@@ -214,7 +214,7 @@
 
         <div class="md:flex md:justify-around">
             <div class="mb-6 md:mb-0">
-                <a href="http://127.0.0.1:8000/" class="flex items-center">
+                <a href="/" class="flex items-center">
                     <img src="{{ asset('imgs/logo.png') }}" class="mr-3 h-8" alt="JobApply Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Job Apply</span>
                 </a>
