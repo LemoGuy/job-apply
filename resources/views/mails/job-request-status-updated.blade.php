@@ -49,7 +49,7 @@
                     <div class="flex justify-center">
 
                         <p class="mt-4 text-sm">Job Apply
-                            <a href="https://job-apply.devistan.com/">
+                            <br> <a href="https://job-apply.devistan.com/">
                                 <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
 
                             </a>
@@ -91,7 +91,7 @@
                     <div class="flex justify-center">
 
                         <p class="mt-4 text-sm">Job Apply
-                            <a href="https://job-apply.devistan.com/">
+                            <br><a href="https://job-apply.devistan.com/">
                                 <img src="{{ asset('imgs/logo.png') }}" style="height: 50px; width:50px;">
 
                             </a>
