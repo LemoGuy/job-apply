@@ -1,4 +1,4 @@
-<form action="/">
+<form action="/#jobs">
     <div class="flex justify-center mb-0 mr-0">
         <div class="mb-0 xl:w-96">
             <div class="input-group relative flex flex-wrap items-stretch w-full mb-0">
