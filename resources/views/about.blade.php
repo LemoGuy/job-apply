@@ -44,8 +44,8 @@
                     </p>
                 </div>
 
-                {{-- <img class=" w-full h-96 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none "
-                    src="{{ asset('imgs/aboutus2.jpg') }}" alt="about us 2" /> --}}
+                <img class=" w-full h-96 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none "
+                    src="{{ asset('imgs/picture11.jpg') }}" alt="about us 2" />
 
             </div>
         </div>

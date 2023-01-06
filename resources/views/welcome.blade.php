@@ -58,12 +58,11 @@
                     src="{{ asset('imgs/aboutus1.jpg') }}" alt="about us 1" />
 
                 <div class="p-6 flex flex-col justify-start">
-                    <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
                     <p class="text-gray-700 text-base mb-4">
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This
-                        content is a little bit longer.
+                        Your work is going to fill a large part of your life, and the only way to be truly satisfied is
+                        to do what you believe is great work. The only way to do great work is to love what you do. If
+                        you have yet to find it, we are here to help you to find your dream job.
                     </p>
-                    <p class="text-gray-600 text-xs">Last updated 3 mins ago</p>
                 </div>
 
             </div>
@@ -73,12 +72,10 @@
             <div class="flex flex-col  md:flex-row md:max-w-4xl  bg-white shadow-lg">
 
                 <div class="p-6 flex flex-col justify-start">
-                    <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
                     <p class="text-gray-700 text-base mb-4">
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This
-                        content is a little bit longer.
+                        We believe hiring to be the most important first step toward the organization's success, join us
+                        to hire the employee that makes your company/organization successful.
                     </p>
-                    <p class="text-gray-600 text-xs">Last updated 3 mins ago</p>
                 </div>
 
                 <img class=" w-full h-96 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none "
@@ -97,23 +94,23 @@
                 <div class="p-6 block  max-w-sm text-center">
                     <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('imgs/company.png') }}"
                         alt="Default avatar">
-                    <p class="text-gray-700 text-base mb-4">
-                        With supporting text below as a natural lead-in to additional content.
+                    <p class="text-gray-700 text-base mb-4 ml-24">
+                        Hire qualify employee.
                     </p>
                 </div>
 
                 <div class="p-6 block  max-w-sm text-center">
                     <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('imgs/location.png') }}"
                         alt="Default avatar">
-                    <p class="text-gray-700 text-base mb-4">
-                        With supporting text below as a natural lead-in to additional content.
+                    <p class="text-gray-700 text-base mb-4 ml-24">
+                        Usable anywhere, any time.
                     </p>
                 </div>
 
                 <div class="p-6 block  max-w-sm text-center">
                     <img class="w-10 h-10 rounded ml-40 mb-4" src="{{ asset('imgs/job.png') }}" alt="Default avatar">
-                    <p class="text-gray-700 text-base mb-4">
-                        With supporting text below as a natural lead-in to additional content.
+                    <p class="text-gray-700 text-base mb-4 ml-24">
+                        Apply for your dream job.
                     </p>
                 </div>
 
@@ -128,12 +125,10 @@
 
 
                     <div class="p-6 flex flex-col justify-start">
-                        <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
                         <p class="text-gray-700 text-base mb-4">
-                            This is a wider card with supporting text below as a natural lead-in to additional content.
-                            This content is a little bit longer.
+                            Our website is a community between applicants and recruiters. by joining our community, you
+                            can find your dream job and as a recruiter, you can hire a qualified employee.
                         </p>
-                        <p class="text-gray-600 text-xs">Last updated 3 mins ago</p>
                     </div>
                     <!-- slide show -->
                     <img class=" w-full h-96 md:h-auto object-cover md:w-1/2 rounded-t-lg md:rounded-none "

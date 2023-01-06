@@ -24,28 +24,19 @@
                 <div class="p-6 flex flex-col justify-start">
                     <h5 class="text-gray-900 text-xl font-medium mb-2">Services</h5>
                     <p class="text-gray-700 text-base mb-4">
-                        Job apply is an online platform for employers to hire quality talent and for job seekers to land
-                        their dream job.
+                        Through our Job apply website, you can empower your team by hiring a qualified employee, We
+                        solve employment issues by advertising jobs and searching for resumes for our clients so that
+                        they can focus on their core activities. can help employers pace up their hiring process. It
+                        would be easier for recruiters or hiring managers to verify job applications online than to
+                        physically scan printed resumes.
+                        Equally, an easier way for an applicant to decide on a specific career.
+                        The job apply website is accessible anywhere at any time through your device.
                     </p>
 
-                    <p class="text-gray-700 text-base mb-4">
-                        This platform helps you as an applicant to get a job with a quick, easy and free process. You
-                        will Gain exposure to a large network of companies and jobs including national businesses
-                        seeking employees as well as multinational corporations. Jobs are advertised for a wide variety
-                        of positions and industries. recruiters will be able to find you and contact you for the best
-                        jobs in your desired industry once you upload your CV. Your CV can be uploaded in just two
-                        minutes, giving you access to a large job market.
-                    </p>
-
-                    <p class="text-gray-700 text-base mb-4">
-                        helps you as a recruiter to identify the best candidate and evaluate their CV. You may post as
-                        many jobs as you desire, posting jobs through our website will encourage a larger number of job
-                        seekers to look at your postings.
-                    </p>
                 </div>
 
                 <img class=" w-full h-96 md:h-auto object-cover md:w-96 rounded-t-lg md:rounded-none "
-                    src="{{ asset('imgs/aboutus2.jpg') }}" alt="about us 2" />
+                    src="{{ asset('imgs/picture22.jpg') }}" alt="services" />
 
             </div>
         </div>
